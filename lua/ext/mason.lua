@@ -7,7 +7,8 @@ mason_lspconfig.setup({
   ensure_installed = {
     "lua_ls",             -- LSP for Lua language
     "pyright",            -- LSP for Python
-    "clangd"
+    "clangd",
+    "cmake",
   }
 });
 

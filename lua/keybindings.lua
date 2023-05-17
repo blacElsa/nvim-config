@@ -9,13 +9,33 @@ nm('<down>', ':echoe "Use j"<CR>')
 nm('<left>', ':echoe "Use h"<CR>')
 nm('<right>', ':echoe "Use l"<CR>')
 
-nm('<F1>', ':nohl<CR>')
+nm('<F2>', ':nohl<CR>')
 nm('<S-F1', ':g/^$/d<CR>')
 
 local group_names = {
   telescope = "Telescope",
   neotree = "NeoTree",
+  lsp = "LSP",
+  go = "Go to",
 }
+
+-- LSP
+wk.register({
+  K = { "<cmd>lua vim.lsp.buf.hover()<CR>", group_names.lsp .. ": Hover" },
+  g = {
+    name = group_names.go,
+    d = { "<cmd>Telescope lsp_definitions<CR>", group_names.lsp .. " Go to definition" },
+    r = { "<cmd>Telescope lsp_references<CR>", group_names.lsp .. " Go to References" },
+  },
+  ["<leader>"] = {
+    l = {
+      name = group_names.lsp,
+      a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", group_names.lsp .. ": Code action" },
+      R = { "<cmd>lua vim.lsp.buf.rename()<CR>", group_names.lsp .. ": Rename" },
+      s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", group_names.lsp .. "/Telescope: Symbols" },
+    },
+  },
+})
 
 -- Telescope
 wk.register({

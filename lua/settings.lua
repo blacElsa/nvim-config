@@ -22,3 +22,6 @@ opt.showmatch = true
 -- Window
 opt.splitbelow = true
 opt.splitright = true
+
+-- Color column
+opt.colorcolumn = "81"
