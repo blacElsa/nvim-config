@@ -23,5 +23,7 @@ opt.showmatch = true
 opt.splitbelow = true
 opt.splitright = true
 
+opt.scrolloff = 10
+
 -- Color column
 opt.colorcolumn = "81"

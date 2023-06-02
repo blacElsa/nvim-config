@@ -105,5 +105,12 @@ return {
     config = function()
       require("ext.lualine")
     end
-  }
+  },
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require("ext.colorizer")
+    end
+  },
 }
