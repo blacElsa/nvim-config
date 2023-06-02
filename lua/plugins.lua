@@ -17,6 +17,8 @@ return {
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-dap",
+      "jay-babu/mason-nvim-dap.nvim",
     },
     config = function()
       require "ext.mason"
@@ -84,6 +86,7 @@ return {
     branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
     config = function ()
