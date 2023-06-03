@@ -1,6 +1,6 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
-local clangd_ext = require("clangd_extensions.cmp_scores")
+-- local clangd_ext = require("clangd_extensions.cmp_scores")
 
 cmp.setup{
   snippet = {
