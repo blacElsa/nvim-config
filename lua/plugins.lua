@@ -10,7 +10,6 @@ return {
       vim.cmd([[colorscheme tokyonight]])
     end
   },
-
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
@@ -19,12 +18,12 @@ return {
       "neovim/nvim-lspconfig",
       "mfussenegger/nvim-dap",
       "jay-babu/mason-nvim-dap.nvim",
+      -- "p00f/clangd_extensions.nvim",
     },
     config = function()
       require "ext.mason"
     end
   },
- 
   {
     'hrsh7th/nvim-cmp',
     event = "InsertEnter",
@@ -42,7 +41,6 @@ return {
       require "ext.cmp"
     end
   },
-
   {
     'onsails/lspkind-nvim',
     lazy = true,
@@ -50,7 +48,6 @@ return {
       require "ext.lspkind"
     end
   },
-
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
@@ -60,14 +57,12 @@ return {
       require "ext.treesitter"
     end
   },
-
   {
     "windwp/nvim-autopairs",
     config = function()
       require "ext.autopairs"
     end
   },
-
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.1',
@@ -80,7 +75,6 @@ return {
       require "ext.telescope"
     end
   },
-
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
@@ -93,7 +87,6 @@ return {
       require "ext.neotree"
     end
   },
-
   {
     "folke/which-key.nvim",
     lazy = true,
@@ -101,7 +94,6 @@ return {
       require("ext.whichkey")
     end,
   },
-
   {
     "nvim-lualine/lualine.nvim",
     lazy = false,
@@ -109,7 +101,6 @@ return {
       require("ext.lualine")
     end
   },
-
   {
     "NvChad/nvim-colorizer.lua",
     config = function()

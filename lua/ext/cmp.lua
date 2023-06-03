@@ -1,5 +1,6 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
+local clangd_ext = require("clangd_extensions.cmp_scores")
 
 cmp.setup{
   snippet = {
@@ -34,7 +35,7 @@ cmp.setup{
     { name = 'luasnip' },                 -- Luasnip
     { name = 'buffer' },                  -- Buffers
     { name = 'path' },                    -- Paths
-    { name = "emoji" },                   -- Emoji
+    { name = 'emoji' },                   -- Emoji
   }, {
   }),
   formatting = {
@@ -42,7 +43,21 @@ cmp.setup{
       mode = 'symbol', -- Show only symbol annotations
       maxwidth = 50,   -- Prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
     })
-  }
+  },
+  --[[
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.recently_used,
+      clangd_ext,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
+  ]]
 }
 
 -- Add snippets from Friendly Snippets

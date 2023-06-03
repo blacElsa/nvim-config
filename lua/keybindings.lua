@@ -25,7 +25,7 @@ wk.register({
   g = {
     name = group_names.go,
     d = { "<cmd>Telescope lsp_definitions<CR>", group_names.lsp .. " Go to definition" },
-    r = { "<cmd>Telescope lsp_references<CR>", group_names.lsp .. " Go to References" },
+    r = { "<cmd>Telescope lsp_references<CR>", group_names.lsp .. " Go to references" },
   },
   ["<leader>"] = {
     l = {
@@ -33,6 +33,8 @@ wk.register({
       a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", group_names.lsp .. ": Code action" },
       R = { "<cmd>lua vim.lsp.buf.rename()<CR>", group_names.lsp .. ": Rename" },
       s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", group_names.lsp .. "/Telescope: Symbols" },
+      -- A = { "<cmd>ClangAST", group_names.lsp .. "/Clangd-extension show AST" },
+      -- h = { "<cmd>ClangdTypeHierarchy", group_names.lsp .. "Clangd-extansion show type hierarchy" },
     },
   },
 })

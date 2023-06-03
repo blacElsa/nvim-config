@@ -28,5 +28,10 @@ mason_lspconfig.setup_handlers {
   function (server_name)
     lspconfig[server_name].setup {}
   end,
+  ["clangd"] = function ()
+    -- local lsp_table = require("clangd_extensions").prepare()
+    -- lspconfig["clangd"].setup(lsp_table);
+    lspconfig["clangd"].setup({});
+  end,
 }
 
