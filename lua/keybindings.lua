@@ -2,6 +2,9 @@ require "helpers/globals"
 require "helpers/keyboard"
 
 local wk = require("which-key")
+local dap = require("dap")
+local dapui = require("dapui")
+
 -- diasble arrow keys
 
 nm('<up>', ':echoe "Use k"<CR>')
@@ -17,6 +20,7 @@ local group_names = {
   neotree = "NeoTree",
   lsp = "LSP",
   go = "Go to",
+  dap = "DAP",
 }
 
 -- LSP
@@ -32,6 +36,7 @@ wk.register({
       name = group_names.lsp,
       a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", group_names.lsp .. ": Code action" },
       R = { "<cmd>lua vim.lsp.buf.rename()<CR>", group_names.lsp .. ": Rename" },
+      d = { "<cmd>lua vim.diagnostic.open_float()<CR>", group_names.lsp .. ": Show diagnostic" },
       s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", group_names.lsp .. "/Telescope: Symbols" },
       -- A = { "<cmd>ClangAST", group_names.lsp .. "/Clangd-extension show AST" },
       -- h = { "<cmd>ClangdTypeHierarchy", group_names.lsp .. "Clangd-extansion show type hierarchy" },
@@ -55,6 +60,33 @@ wk.register({
   }
 })
 
+-- DAP
 wk.register({
-  ["<leader>v"] = { "<cmd>NeoTreeFocusToggle<CR>", group_names.neotree }
+  ['<F5>'] = { function() dap.continue() end, group_names.dap .. ": Run/resume debug session" },
+  ['<F10>'] = { function() dap.step_over() end, group_names.dap .. ": Step over" },
+  ['<F11>'] = { function() dap.step_into() end, group_names.dap .. ": Step into" },
+  ['<F12>'] = { function() dap.step_out() end, group_names.dap .. ": Step out" },
+  ['<leader>'] = {
+    d = {
+      name = group_names.dap,
+      b = { function() dap.toggle_breakpoint() end, group_names.dap .. ": Toggle breakpoint"},
+      B = { function() dap.set_breakpoint() end, group_names.dap .. ": Set breakpoint"},
+      p = { function() dap.set_breakpoint(nil, nil, fn.input('Log point message: ')) end, group_names.dap .. ": Set log point"},
+      c = { function() dap.set_breakpoint(fn.input('Condition: '), nil, nil) end, group_names.dap .. ": Set condition breakpoint"},
+      f = { function() dapui.float_element() end, group_names.dap  .. ": Show float" },
+   }
+  }
+})
+
+wk.register({
+  ['<leader>'] = {
+    d = {
+      name = group_names.dap,
+      f = { function() dapui.float_element() end, group_names.dap  .. ": Show float" },
+    }
+  }
+}, { mode = "v" })
+
+wk.register({
+  ['<leader>v'] = { "<cmd>NeoTreeFocusToggle<CR>", group_names.neotree }
 })

@@ -18,10 +18,12 @@ return {
       "neovim/nvim-lspconfig",
       "mfussenegger/nvim-dap",
       "jay-babu/mason-nvim-dap.nvim",
+      "rcarriga/nvim-dap-ui"
       -- "p00f/clangd_extensions.nvim",
     },
     config = function()
       require "ext.mason"
+      require "ext.dap"
     end
   },
   {
