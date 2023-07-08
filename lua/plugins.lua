@@ -7,7 +7,7 @@ return {
     priority = 1000,
     config = function()
       require "ext.tokyonight"
-      vim.cmd([[colorscheme tokyonight]])
+      cmd([[colorscheme tokyonight]])
     end
   },
   {
@@ -18,8 +18,8 @@ return {
       "neovim/nvim-lspconfig",
       "mfussenegger/nvim-dap",
       "jay-babu/mason-nvim-dap.nvim",
-      "rcarriga/nvim-dap-ui"
-      -- "p00f/clangd_extensions.nvim",
+      "rcarriga/nvim-dap-ui",
+      "p00f/clangd_extensions.nvim",
     },
     config = function()
       require "ext.mason"

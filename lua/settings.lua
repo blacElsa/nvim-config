@@ -26,4 +26,4 @@ opt.splitright = true
 opt.scrolloff = 10
 
 -- Color column
-opt.colorcolumn = "81"
+opt.colorcolumn = "121"

@@ -38,11 +38,20 @@ wk.register({
       R = { "<cmd>lua vim.lsp.buf.rename()<CR>", group_names.lsp .. ": Rename" },
       d = { "<cmd>lua vim.diagnostic.open_float()<CR>", group_names.lsp .. ": Show diagnostic" },
       s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", group_names.lsp .. "/Telescope: Symbols" },
-      -- A = { "<cmd>ClangAST", group_names.lsp .. "/Clangd-extension show AST" },
-      -- h = { "<cmd>ClangdTypeHierarchy", group_names.lsp .. "Clangd-extansion show type hierarchy" },
+      A = { "<cmd>ClangAST", group_names.lsp .. "/Clangd-extension show AST" },
+      h = { "<cmd>ClangdTypeHierarchy", group_names.lsp .. "/Clangd-extension show type hierarchy" },
     },
   },
 })
+
+wk.register({
+  ['<leader>'] = {
+    l = {
+      name = group_names.lsp,
+      A = { "<Esc>:'<,'>ClangAST<CR>", group_names.lsp .. "/Clangd-extension show AST" },
+    }
+  }
+}, { mode = "v" })
 
 -- Telescope
 wk.register({
