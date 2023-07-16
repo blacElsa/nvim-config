@@ -1,29 +1,41 @@
-require "helpers/globals"
+require("helpers")
 
-cmd[[filetype plugin on]]
+vim.scriptencoding = "utf-8"
 
--- Number
+g.mapleader = " "
+g.maplocalleader = " "
+
+-- Editor options
+
 opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
+opt.ruler = true
+opt.title = true
+opt.clipboard = "unnamedplus"
+opt.syntax = "on"
+opt.encoding = "utf-8"
+opt.hidden = true
+opt.ttimeoutlen = 0
+opt.wildmenu = true
+opt.showcmd = true
 
--- Tabs
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.tabstop = 2
-opt.smartindent = true
-
--- Clipboard
-opt.clipboard = 'unnamedplus'
-
--- Search
+opt.showmatch = true
 opt.ignorecase = true
 opt.smartcase = true
-opt.showmatch = true
 
--- Window
+opt.inccommand = "split"
 opt.splitbelow = true
 opt.splitright = true
 
-opt.scrolloff = 10
+opt.mouse = "a"
 
--- Color column
+opt.scrolloff = 999
 opt.colorcolumn = "121"
+
+-- Tabs
+
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.autoindent = true

@@ -19,7 +19,7 @@ neotree.setup({
         ".git"
       },
     },
-    follow_current_file = false,
+    follow_current_file = true,
   },
   icon = {
     folder_closed = "",
@@ -41,6 +41,14 @@ neotree.setup({
       unstaged  = "",
       staged    = "",
       conflict  = "",
+    }
+  },
+  event_handlers = {
+    {
+      event = "file_opened",
+      handler = function(file_path)
+        neotree.close_all()
+      end
     }
   },
 })

@@ -1,13 +1,15 @@
-require'nvim-treesitter.configs'.setup {
+local treesitter = require("nvim-treesitter.configs")
+
+treesitter.setup({
   ensure_installed = {
     "c",
---    "cpp", -- build failed
     "lua",
     "vim",
     "vimdoc",
     "json",
-    "javascript",
     "cmake",
     "python",
   },
-}
+  highlight = { enable = true },
+  -- indent = { enable = true },
+})

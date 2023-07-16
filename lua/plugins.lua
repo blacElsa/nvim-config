@@ -1,13 +1,36 @@
-require "helpers/globals"
+require("helpers")
 
 return {
   {
-    "folke/tokyonight.nvim",
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require "ext.tokyonight"
-      cmd([[colorscheme tokyonight]])
+      require("ext.kanagawa")
+    end
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("ext.lualine")
+    end
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("ext.treesitter")
+    end
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("ext.autopairs")
     end
   },
   {
@@ -22,64 +45,28 @@ return {
       "p00f/clangd_extensions.nvim",
     },
     config = function()
-      require "ext.mason"
-      require "ext.dap"
+      require("ext.mason")
+      require("ext.dap")
     end
   },
   {
-    'hrsh7th/nvim-cmp',
+    "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-emoji',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
-      'hrsh7th/cmp-nvim-lua',
-      'rafamadriz/friendly-snippets',
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-emoji",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "hrsh7th/cmp-nvim-lua",
     },
     config = function()
-      require "ext.cmp"
-    end
-  },
-  {
-    'onsails/lspkind-nvim',
-    lazy = true,
-    config = function()
-      require "ext.lspkind"
-    end
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    lazy = false,
-    build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require "ext.treesitter"
-    end
-  },
-  {
-    "windwp/nvim-autopairs",
-    config = function()
-      require "ext.autopairs"
-    end
-  },
-  {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "ahmedkhalf/project.nvim",
-    },
-    config = function()
-      require "ext.telescope"
+      require("ext.cmp")
     end
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
@@ -90,23 +77,28 @@ return {
     end
   },
   {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.2",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("ext.telescope")
+    end
+  },
+  {
+    'onsails/lspkind-nvim',
+    lazy = true,
+    config = function()
+      require "ext.lspkind"
+    end
+  },
+  {
     "folke/which-key.nvim",
     lazy = true,
     config = function()
       require("ext.whichkey")
     end,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    lazy = false,
-    config = function()
-      require("ext.lualine")
-    end
-  },
-  {
-    "NvChad/nvim-colorizer.lua",
-    config = function()
-      require("ext.colorizer")
-    end
   },
 }
